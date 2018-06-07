@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+
+    <title>Institution Details</title>
+  </head>
+
+  <body>
+    <h1>{{ inst_detail[2] }} - {{ inst_detail[4] }}</h1>
+    {% with messages = get_flashed_messages() %}
+      {% if messages %}
+        {% for message in messages %}
+          <p style="color:red">{{ message }}</p>
+        {% endfor %}
+      {% endif %}
+    {% endwith %}
+    <table>
+      <tr>
+        <td>Institution id</td><td>{{ inst_detail[0] }}</td>
+      </tr><tr>
+        <td>Provider id</td><td>{{ inst_detail[1] }}</td>
+      </tr><tr>
+        <td>Provider code</td><td>{{ inst_detail[2] }}</td>
+      </tr><tr>
+        <td>Trading name</td><td>{{ inst_detail[3] }}</td>
+      </tr><tr>
+        <td>Name</td><td>{{ inst_detail[4] }}</td>
+      </tr><tr>
+        <td>Type</td><td>{{ inst_detail[5] }}</td>
+      </tr><tr>
+        <td>Total Capacity</td><td>{{ inst_detail[6] }}</td>
+      </tr><tr>
+        <td>Website</td><td>{{ inst_detail[7] }}</td>
+      </tr><tr>
+        <td>Postal Address</td><td>{{ inst_detail[8] }}</td>
+      </tr><tr>
+        <td>Location</td><td>{{ inst_detail[9] }}</td>
+      </tr><tr>
+        <table>
+          <tr>
+            <td>
+              <button type=button onclick="window.location.href='{{ url_for('inst_edit',id=inst_detail[0]) }}';">Edit</button>
+            </td>
+            <td>
+              <form onsubmit="return confirm('Are you sure you want to delete?');" method="POST" action="{{ url_for('inst_edit',id=inst_detail[0]) }}">
+                <input type=submit value="Delete" name="btn_submit">
+              </form>
+            </td>
+            <td>
+              <button type=button onclick="window.location.href='{{ url_for('index') }}';">Cancel</button>
+            </td>
+          </tr>
+        </table>
+      </tr>
+    </table>
+  </body>
+</html>
