@@ -1,15 +1,9 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+{% extends "base.html" %}
 
-    <title>Institution Add</title>
-  </head>
+{% block title %}Institute - Add{% endblock %}
 
-  <body>
+{% block body %}
+
     <h1>Add New Institution</h1>
     {% with messages = get_flashed_messages() %}
       {% if messages %}
@@ -50,6 +44,10 @@
         </tr><tr>
           <td>{{ form.locations.label }}</td><td>{{ form.locations }}</td>
         </tr><tr>
+          <td>{{ form.favourite.label }}</td><td>{{ form.favourite }}</td>
+        </tr><tr>
+          <td>{{ form.status.label }}</td><td>{{ form.status }}</td>
+        </tr><tr>
           <table>
             <tr>
               <td>
@@ -63,5 +61,5 @@
         </tr>
       </table>
     </form>
-  </body>
-</html>
+
+{% endblock %}

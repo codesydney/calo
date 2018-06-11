@@ -83,20 +83,14 @@ def inst_edit(id):
                 try:
                     cur.execute('UPDATE demo_institutionmodel \
                         SET cricos_provider_id = %s, cricos_provider_code = %s, \
-                        cricos_trading_name = %s, \
-                        cricos_name = %s, cricos_type = %s, \
-                        cricos_total_capacity = %s, cricos_website = %s, \
-                        cricos_postal_address = %s, locations = %s \
-                        WHERE institution_id = %s', (request.form['provider_id'], \
-                        request.form['provider_code'], \
-                        request.form['trading_name'], request.form['name'], \
-                        request.form['type'], request.form['total_capacity'], \
-                        request.form['website'], request.form['postal_address'], \
-                        request.form['locations'], id))
+                        cricos_trading_name = %s, cricos_name = %s, cricos_type = %s, \
+                        cricos_total_capacity = %s, cricos_website = %s, cricos_postal_address = %s, \
+                        locations = %s, favourite = %s, status = %s \
+                        WHERE institution_id = %s', (request.form['provider_id'], request.form['provider_code'], \
+                        request.form['trading_name'], request.form['name'], request.form['type'], \
+                        request.form['total_capacity'], request.form['website'], request.form['postal_address'], \
+                        request.form['locations'], request.form['favourite'], request.form['status'], id))
                     con.commit()
-
-                    cur.execute('SELECT * FROM demo_institutionmodel WHERE institution_id = "%s"' % id)
-                    res = cur.fetchone()
 
                     flash('Record updated successfully')
                     return redirect(url_for('inst_detail',id=id))
@@ -127,11 +121,11 @@ def inst_add():
                 cur.execute('INSERT INTO demo_institutionmodel \
                     (cricos_provider_id, cricos_provider_code, cricos_trading_name, \
                     cricos_name, cricos_type, cricos_total_capacity, cricos_website, \
-                    cricos_postal_address, locations) \
-                    VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s)',(form.provider_id.data, form.provider_code.data, \
-                    form.trading_name.data, form.name.data, form.type.data, \
-                    form.total_capacity.data, form.website.data, \
-                    form.postal_address.data, form.locations.data))
+                    cricos_postal_address, locations, favourite, status) \
+                    VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)',(form.provider_id.data, \
+                    form.provider_code.data, form.trading_name.data, form.name.data, form.type.data, \
+                    form.total_capacity.data, form.website.data, form.postal_address.data, \
+                    form.locations.data, form.favourite.data, form.status.data))
                 id = cur.lastrowid
                 con.commit()
                 flash('Record added successfully')

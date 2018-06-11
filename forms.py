@@ -13,6 +13,8 @@ class InstForm(FlaskForm):
     website = StringField('Website',default='http://',validators=[URL(message='Please enter a valid URL')])
     postal_address = TextAreaField('Postal Address')
     locations = StringField('Locations')
+    favourite = StringField('Favourite')
+    status = StringField('Status')
     submit = SubmitField('Send')
 
 class Institution:
@@ -27,3 +29,5 @@ class Institution:
         self.website = inst[7]
         self.postal_address = inst[8]
         self.locations = inst[9]
+        self.favourite = inst[10]
+        self.status = inst[11]

@@ -1,15 +1,9 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+{% extends "base.html" %}
 
-    <title>Institution Details</title>
-  </head>
+{% block title %}Institute - Detail{% endblock %}
 
-  <body>
+{% block body %}
+
     <h1>{{ inst_detail[2] }} - {{ inst_detail[4] }}</h1>
     {% with messages = get_flashed_messages() %}
       {% if messages %}
@@ -40,6 +34,10 @@
       </tr><tr>
         <td>Location</td><td>{{ inst_detail[9] }}</td>
       </tr><tr>
+        <td>Favourite</td><td>{{ inst_detail[10] }}</td>
+      </tr><tr>
+        <td>Status</td><td>{{ inst_detail[11] }}</td>
+      </tr><tr>
         <table>
           <tr>
             <td>
@@ -57,5 +55,5 @@
         </table>
       </tr>
     </table>
-  </body>
-</html>
+
+{% endblock %}
