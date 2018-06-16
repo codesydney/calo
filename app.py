@@ -14,7 +14,7 @@ app.config['SECRET_KEY'] = os.urandom(24) #os.random generates a random string o
 
 # MySQL configurations (localhost)
 app.config['MYSQL_DATABASE_USER'] = 'root'
-app.config['MYSQL_DATABASE_PASSWORD'] = 'password'
+app.config['MYSQL_DATABASE_PASSWORD'] = '12er34ty'
 app.config['MYSQL_DATABASE_DB'] = 'trial'
 app.config['MYSQL_DATABASE_HOST'] = 'localhost'
 
@@ -38,8 +38,13 @@ def close_db(error):
     if hasattr(g, 'mysql_db'):
         g.mysql_db.close()
 
-@app.route('/',methods=['GET','POST'])
+
+@app.route('/')
 def index():
+    return render_template('index.html')        
+
+@app.route('/institution_list',methods=['GET','POST'])
+def institution_list():
     #Query PythonAnywhere MySQL database
     #result = execute_query('''SELECT * FROM engramar$default.demo_institutionmodel limit 5;''')
     con = get_db(flaskmysql)

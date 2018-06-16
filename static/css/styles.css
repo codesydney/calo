@@ -1,0 +1,21 @@
+body div a.myclass{
+    color:#ffffff;
+}
+body div .myclass{
+    color:#ffffff;
+}
+body a.myclass{
+    color:#ffffff;
+}
+body .myclass{
+    color:#ffffff;
+}
+a.myclass{
+    color:#ffffff;
+}
+.myclass {
+    color:#ffffff;
+}
+.myclass:hover { 
+	color: #f4c542; 
+}
