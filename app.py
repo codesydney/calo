@@ -62,7 +62,7 @@ def institution_list():
             srt_order = 'CRICOS_WEBSITE'
     cur.execute('SELECT INSTITUTION_ID, CRICOS_PROVIDER_CODE, CRICOS_NAME, CRICOS_TOTAL_CAPACITY, CRICOS_WEBSITE, FAVOURITE, STATUS FROM demo_institutionmodel ORDER BY ' + srt_order)
     res = cur.fetchall()
-    return render_template('home.html',institutes=res,srt=srt)
+    return render_template('institutions.html',institutes=res,srt=srt)
 
 @app.route('/inst_detail/<id>')
 def inst_detail(id):

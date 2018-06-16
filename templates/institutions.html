@@ -5,17 +5,17 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>calo</title>
-    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
-    <link rel="stylesheet" href="assets/fonts/fontawesome-all.min.css">
-    <link rel="stylesheet" href="assets/fonts/font-awesome.min.css">
-    <link rel="stylesheet" href="assets/fonts/ionicons.min.css">
-    <link rel="stylesheet" href="assets/fonts/typicons.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Amiko">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700">
-    <link rel="stylesheet" href="assets/css/Features-Blue.css">
-    <link rel="stylesheet" href="assets/css/Footer-Basic.css">
-    <link rel="stylesheet" href="assets/css/Header-Blue.css">
-    <link rel="stylesheet" href="assets/css/styles.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='bootstrap/css/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='fonts/fontawesome-all.min.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='fonts/font-awesome.min.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='fonts/ionicons.min.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='fonts/typicons.min.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/Features-Blue.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/Footer-Basic.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/Header-Blue.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
 </head>
 
 <body>
@@ -31,6 +31,50 @@
                         </form><span class="navbar-text"> <a href="#" class="login">Log In</a></span><a class="btn btn-light action-button" role="button" href="#">Sign Up</a></div>
         </div>
         </nav>
+    </div>
+    </div>
+        
+      <h1>Institutions</h1>
+      {% with messages = get_flashed_messages() %}
+        {% if messages %}
+          {% for message in messages %}
+            <p style="color:red">{{ message }}</p>
+          {% endfor %}
+        {% endif %}
+      {% endwith %}
+      <p><button type=button onclick="window.location.href='{{ url_for('inst_add') }}';">Create new record</button></p>
+      <form method="POST" action="{{ url_for('index') }}">
+        <select name='sort'>
+          <option value="0" {% if srt=='0' %}SELECTED{% endif %}>Code</option>
+          <option value="1" {% if srt=='1' %}SELECTED{% endif %}>Name</option>
+          <option value="2" {% if srt=='2' %}SELECTED{% endif %}>Website</option>
+        </select>
+        <input type=submit value="Sort" name="btn_submit">
+      </form>
+      <table>
+        <tr>
+          <td><strong>Code</strong></td>
+          <td><strong>Name</strong></td>
+          <td><strong>Capacity</strong></td>
+          <td><strong>Website</strong></td>
+          <td><strong>Favourite</strong></td>
+          <td><strong>Status</strong></td>
+        </tr>
+        {% for inst in institutes %}
+        <tr>
+          <td>{{ inst[1] }}</td>
+          <td>{{ inst[2] }}</td>
+          <td>{{ inst[3] }}</td>
+          <td><a href='{{ inst[3] }}' target='_blank'>{{ inst[4] }}</a></td>
+          <td>{{ inst[5] }}</td>
+          <td>{{ inst[6] }}</td>
+          <td>
+            <button type=button onclick="window.location.href='{{ url_for('inst_detail',id=inst[0]) }}';">View</button>
+          </td>
+        </tr>
+        {% endfor %}
+      </table>
+
         <nav>
             <ul class="pagination">
                 <li class="page-item"><a class="page-link" aria-label="Previous"><span aria-hidden="true">«</span></a></li>
@@ -42,23 +86,22 @@
                 <li class="page-item"><a class="page-link" aria-label="Next"><span aria-hidden="true">»</span></a></li>
             </ul>
         </nav>
-    </div>
-    </div>
+
+
     <div class="footer-basic">
         <footer>
             <div class="social"><a href="#"><i class="icon ion-social-instagram"></i></a><a href="#"><i class="fa fa-meetup"></i></a><a href="#"><i class="icon ion-social-twitter"></i></a><a href="#"><i class="icon ion-social-facebook"></i></a></div>
             <ul class="list-inline">
-                <li class="list-inline-item"></li>
-                <li class="list-inline-item"></li>
-                <li class="list-inline-item"><a href="#">About</a></li>
                 <li class="list-inline-item"><a href="#">Terms</a></li>
                 <li class="list-inline-item"><a href="#">Privacy Policy</a></li>
             </ul>
             <p class="copyright">Calo Services © 2018</p>
         </footer>
     </div>
-    <script src="assets/js/jquery.min.js"></script>
-    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+
+    <script src="static/js/jquery.min.js"></script>
+    <script src="static/bootstrap/js/bootstrap.min.js"></script>
+    
 </body>
 
 </html>
