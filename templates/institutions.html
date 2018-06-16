@@ -43,7 +43,7 @@
         {% endif %}
       {% endwith %}
       <p><button type=button onclick="window.location.href='{{ url_for('inst_add') }}';">Create new record</button></p>
-      <form method="POST" action="{{ url_for('index') }}">
+      <form method="POST" action="{{ url_for('institution_list') }}">
         <select name='sort'>
           <option value="0" {% if srt=='0' %}SELECTED{% endif %}>Code</option>
           <option value="1" {% if srt=='1' %}SELECTED{% endif %}>Name</option>
@@ -86,7 +86,6 @@
                 <li class="page-item"><a class="page-link" aria-label="Next"><span aria-hidden="true">»</span></a></li>
             </ul>
         </nav>
-
 
     <div class="footer-basic">
         <footer>
