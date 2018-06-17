@@ -34,7 +34,7 @@
     </div>
     </div>
 
-    <h1>Add New Institution</h1>
+    <h1 style="font-size:45px;margin-left:172px;">Add New Institution</h1>
     {% with messages = get_flashed_messages() %}
       {% if messages %}
         {% for message in messages %}
@@ -45,7 +45,7 @@
 
     <form method="POST" action="{{ url_for('inst_add') }}">
       {{ form.csrf_token }}
-      <table>
+      <table style="font-size:18px;margin-left:172px;">
         {% for error in form.provider_id.errors %}
         <tr><td colspan="2"><span style="color:red">{{ error }}</span></td></tr>
         {% endfor %}

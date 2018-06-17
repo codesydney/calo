@@ -34,7 +34,7 @@
     </div>
     </div>
 
-    <h1>{{ form.provider_code.data}} - {{ form.name.data }}</h1>
+    <h1 style="font-size:45px;margin-left:172px;">{{ form.provider_code.data}} - {{ form.name.data }}</h1>
     {% with messages = get_flashed_messages() %}
       {% if messages %}
         {% for message in messages %}
@@ -45,7 +45,7 @@
     <form method="POST" action="{{ url_for('inst_edit',id=form.institution_id.data) }}">
       {{ form.csrf_token }}
       {{ form.institution_id }}
-      <table>
+      <table style="font-size:18px;margin-left:172px;">
 
         {% for error in form.provider_id.errors %}
         <tr><td colspan="2"><span style="color:red">{{ error }}</span></td></tr>
@@ -84,7 +84,7 @@
         </tr><tr>
           <td>{{ form.status.label }}</td><td>{{ form.status }}</td>
         </tr><tr>
-          <table>
+          <table style="font-size:18px;margin-left:172px;">
             <tr>
               <td>
                 <input type="submit" value="Update" name="btn_submit">

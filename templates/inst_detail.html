@@ -34,7 +34,7 @@
     </div>
     </div>
 
-    <h1>{{ inst_detail[2] }} - {{ inst_detail[4] }}</h1>
+    <h1 style="font-size:45px;margin-left:172px;">{{ inst_detail[2] }} - {{ inst_detail[4] }}</h1>
     {% with messages = get_flashed_messages() %}
       {% if messages %}
         {% for message in messages %}
@@ -42,7 +42,7 @@
         {% endfor %}
       {% endif %}
     {% endwith %}
-    <table>
+    <table style="font-size:18px;margin-left:172px;">
       <tr>
         <td>Institution id</td><td>{{ inst_detail[0] }}</td>
       </tr><tr>
@@ -68,7 +68,7 @@
       </tr><tr>
         <td>Status</td><td>{{ inst_detail[11] }}</td>
       </tr><tr>
-        <table>
+        <table style="font-size:18px;margin-left:172px;">
           <tr>
             <td>
               <button type=button onclick="window.location.href='{{ url_for('inst_edit',id=inst_detail[0]) }}';">Edit</button>
