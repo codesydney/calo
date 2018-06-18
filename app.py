@@ -15,6 +15,7 @@ app.config['SECRET_KEY'] = os.urandom(24) #os.random generates a random string o
 # MySQL configurations (localhost)
 app.config['MYSQL_DATABASE_USER'] = 'root'
 app.config['MYSQL_DATABASE_PASSWORD'] = '12er34ty'
+#app.config['MYSQL_DATABASE_PASSWORD'] = 'password'
 app.config['MYSQL_DATABASE_DB'] = 'trial'
 app.config['MYSQL_DATABASE_HOST'] = 'localhost'
 
@@ -41,7 +42,7 @@ def close_db(error):
 
 @app.route('/')
 def index():
-    return render_template('index.html')        
+    return render_template('index.html')
 
 @app.route('/institution_list',methods=['GET','POST'])
 def institution_list():
@@ -108,10 +109,10 @@ def inst_edit(id):
                 cur.execute('DELETE FROM demo_institutionmodel WHERE institution_id = %s',id)
                 con.commit()
                 flash('Record deleted successfully')
-                return redirect(url_for('index'))
+                return redirect(url_for('institutions_list'))
             except Exception as e:
                 flash('Delete record failed')
-                return redirect(url_for('index'))
+                return redirect(url_for('institutions_list'))
 
     return render_template('inst_edit.html',form=form)
 
@@ -137,7 +138,7 @@ def inst_add():
                 return redirect(url_for('inst_detail',id=id))
             except Exception as e:
                 flash('Create record failed')
-                return redirect(url_for('index'))
+                return redirect(url_for('institutions_list'))
 
     return render_template('inst_add.html', form=form)
 
