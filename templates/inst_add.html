@@ -77,18 +77,10 @@
           <td>{{ form.favourite.label }}</td><td>{{ form.favourite }}</td>
         </tr><tr>
           <td>{{ form.status.label }}</td><td>{{ form.status }}</td>
-        </tr><tr>
-          <table>
-            <tr>
-              <td>
-                {{ form.submit }}
-              </td>
-              <td>
-                <button type=button onclick="window.location.href='{{ url_for('index') }}';">Cancel</button>
-              </td>
-            </tr>
-          </table>
-        </tr>
+        </tr><tr><td>
+          <input type="submit" value="Add" name="btn_submit">
+          <button type=button onclick="window.location.href='{{ url_for('institution_list') }}';">Cancel</button>
+        </td></tr>
       </table>
     </form>
 
@@ -106,7 +98,7 @@
 
     <script src="static/js/jquery.min.js"></script>
     <script src="static/bootstrap/js/bootstrap.min.js"></script>
-    
+
 </body>
 
 </html>
