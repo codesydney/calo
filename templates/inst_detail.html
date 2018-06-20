@@ -22,19 +22,15 @@
     <div>
         <div class="header-blue" style="height:5px;">
             <nav class="navbar navbar-dark navbar-expand-md navigation-clean-search">
-                <div class="container"><a class="navbar-brand" href="#" style="font-size:59px;font-family:'Source Sans Pro', sans-serif;">CALO</a><button class="navbar-toggler" data-toggle="collapse" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
-                    <div
-                        class="collapse navbar-collapse" id="navcol-1">
-                        <ul class="nav navbar-nav"></ul>
-                        <form class="form-inline mr-auto" target="_self">
-                            <div class="form-group"><label for="search-field"></label><input class="form-control search-field" type="search" name="search" id="search-field"></div>
-                        </form><span class="navbar-text"> <a href="#" class="login">Log In</a></span><a class="btn btn-light action-button" role="button" href="#">Sign Up</a></div>
-        </div>
-        </nav>
-    </div>
+                <div class="container">
+                  <a class="navbar-brand" href="#" style="font-size:59px;font-family:'Source Sans Pro',sans-serif"></a>
+                  <span class="navbar-brand"> <a class="navbar-brand" href="#" style="font-size:59px;font-family:'Source Sans Pro',sans-serif;"></a></span>
+                </div>
+           </nav>
+       </div>
     </div>
 
-    <h1 style="font-size:45px;margin-left:172px;">{{ inst_detail[2] }} - {{ inst_detail[4] }}</h1>
+    <h1 style="font-size:45px;margin-left:172px;">{{ inst_detail[4] }}</h1>
     {% with messages = get_flashed_messages() %}
       {% if messages %}
         {% for message in messages %}
@@ -42,29 +38,30 @@
         {% endfor %}
       {% endif %}
     {% endwith %}
+
     <table style="font-size:18px;margin-left:172px;">
       <tr>
-        <td>Institution id</td><td>{{ inst_detail[0] }}</td>
+        <td>Institution ID</td><td style="padding:0.1em;padding-right:8em;">{{ inst_detail[0] }}</td>
       </tr><tr>
-        <td>Provider id</td><td>{{ inst_detail[1] }}</td>
+        <td>Provider ID</td><td style="padding:0.1em;padding-right:8em;">{{ inst_detail[1] }}</td>
       </tr><tr>
-        <td>Provider code</td><td>{{ inst_detail[2] }}</td>
+        <td>Provider Code</td><td style="padding:0.1em;padding-right:8em;">{{ inst_detail[2] }}</td>
       </tr><tr>
-        <td>Trading name</td><td>{{ inst_detail[3] }}</td>
+        <td>Trading Name</td><td style="padding:0.1em;padding-right:8em;">{{ inst_detail[3] }}</td>
       </tr><tr>
-        <td>Name</td><td>{{ inst_detail[4] }}</td>
+        <td>Name</td><td style="padding:0.1em;padding-right:8em;">{{ inst_detail[4] }}</td>
       </tr><tr>
-        <td>Type</td><td>{{ inst_detail[5] }}</td>
+        <td>Type</td><td style="padding:0.1em;padding-right:8em;">{{ inst_detail[5] }}</td>
       </tr><tr>
-        <td>Total Capacity</td><td>{{ inst_detail[6] }}</td>
+        <td>Total Capacity</td><td style="padding:0.1em;padding-right:8em;">{{ inst_detail[6] }}</td>
       </tr><tr>
-        <td>Website</td><td>{{ inst_detail[7] }}</td>
+        <td>Website</td><td style="padding:0.1em;padding-right:8em;">{{ inst_detail[7] }}</td>
       </tr><tr>
-        <td>Postal Address</td><td>{{ inst_detail[8] }}</td>
+        <td>Postal Address</td><td style="padding:0.1em;padding-right:8em;">{{ inst_detail[8] }}</td>
       </tr><tr>
-        <td>Location</td><td>{{ inst_detail[9] }}</td>
+        <td>Location</td><td style="padding:0.1em;padding-right:8em;">{{ inst_detail[9] }}</td>
       </tr><tr>
-        <td>Favourite</td><td>{{ inst_detail[10] }}</td>
+        <td>Favourite</td><td style="padding:0.1em;padding-right:8em;">{{ inst_detail[10] }}</td>
       </tr><tr>
         <td>Status</td><td>{{ inst_detail[11] }}</td>
       </tr><tr>
@@ -86,7 +83,6 @@
       </tr>
     </table>
 
-
     <div class="footer-basic">
         <footer>
             <div class="social"><a href="#"><i class="icon ion-social-instagram"></i></a><a href="#"><i class="fa fa-meetup"></i></a><a href="#"><i class="icon ion-social-twitter"></i></a><a href="#"><i class="icon ion-social-facebook"></i></a></div>
@@ -98,9 +94,8 @@
         </footer>
     </div>
 
-    <script src="static/js/jquery.min.js"></script>
-    <script src="static/bootstrap/js/bootstrap.min.js"></script>
+    <script src="{{ url_for('static', filename='js/jquery.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='bootstrap/js/bootstrap.min.js') }}"></script>
 
-</body>
-
+  </body>
 </html>

@@ -4,18 +4,18 @@ from wtforms.validators import URL, Regexp
 
 class InstForm(FlaskForm):
     institution_id = HiddenField()
-    provider_id = IntegerField('Provider id')
-    provider_code = StringField('Provider code')
-    trading_name = StringField('Trading Name')
-    name = StringField('Name')
-    type = SelectField('Type', choices = [('Government','Government'),('Private','Private')])
-    total_capacity = IntegerField('Total Capacity')
-    website = StringField('Website',default='http://',validators=[URL(message='Please enter a valid URL')])
-    postal_address = TextAreaField('Postal Address')
-    locations = StringField('Locations')
-    favourite = StringField('Favourite')
-    status = StringField('Status')
-    submit = SubmitField('Send')
+    provider_id = IntegerField('Provider ID',render_kw={"size":"90"})   
+    provider_code = StringField('Provider Code',render_kw={"size":"90"})   
+    trading_name = StringField('Trading Name',render_kw={"size":"90"})   
+    name = StringField('Name',render_kw={"size":"90"})   
+    type = SelectField('Type', choices=[('Government','Government'),('Private','Private')])  
+    total_capacity = IntegerField('Total Capacity',render_kw={"size":"90"})   
+    website = StringField('Website',default='http://',validators=[URL(message='Please enter a valid URL')],render_kw={"size":"90"})  
+    postal_address = StringField('Postal Address',render_kw={"size":"90"})   
+    locations = StringField('Locations',render_kw={"size":"90"})   
+    favourite = StringField('Favourite',render_kw={"size":"90"})   
+    status = StringField('Status',render_kw={"size":"90"})   
+    submit = SubmitField('Send',render_kw={"size":"90"})   
 
 class Institution:
     def __init__(self,inst):

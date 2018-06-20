@@ -71,6 +71,7 @@ def inst_detail(id):
     cur = con.cursor()
     cur.execute('SELECT * FROM demo_institutionmodel WHERE institution_id = "%s"' % id)
     res = cur.fetchone()
+    print('instdetail ',res)
     return render_template('inst_detail.html',inst_detail=res)
 
 @app.route('/inst_edit/<id>',methods=['GET','POST'])
@@ -109,10 +110,10 @@ def inst_edit(id):
                 cur.execute('DELETE FROM demo_institutionmodel WHERE institution_id = %s',id)
                 con.commit()
                 flash('Record deleted successfully')
-                return redirect(url_for('institutions_list'))
+                return redirect(url_for('institution_list'))
             except Exception as e:
                 flash('Delete record failed')
-                return redirect(url_for('institutions_list'))
+                return redirect(url_for('institution_list'))
 
     return render_template('inst_edit.html',form=form)
 
@@ -138,7 +139,7 @@ def inst_add():
                 return redirect(url_for('inst_detail',id=id))
             except Exception as e:
                 flash('Create record failed')
-                return redirect(url_for('institutions_list'))
+                return redirect(url_for('institution_list'))
 
     return render_template('inst_add.html', form=form)
 

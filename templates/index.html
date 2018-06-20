@@ -37,15 +37,15 @@
     <div class="features-blue">
         <div class="container">
             <div class="intro">
-                <h2 class="text-center"> </h2>
+                <h2 class="text-center"></h2>
             </div>
             <div class="row features">
                 <div class="col-sm-6 col-md-4 item"><i class="fa fa-user icon"></i>
-                    <h3 class="name">Students</h3>
+                    <h3 style="font-size:23px;"><a class="myclass" href="{{ url_for('institution_list') }}">Students</a></h3>
                     <p class="description">Student Management Module</p>
                 </div>
                 <div class="col-sm-6 col-md-4 item"><i class="fas fa-clipboard icon"></i>
-                    <h3 class="name">Receipts</h3>
+                    <h3 style="font-size:23px;"><a class="myclass" href="{{ url_for('institution_list') }}">Receipts</a></h3>
                     <p class="description">Receipts Register</p>
                 </div>
                 <div class="col-sm-6 col-md-4 item"><i class="fa fa-list-alt icon"></i>
@@ -53,15 +53,15 @@
                     <p class="description">Institutions Register</p>
                 </div>
                 <div class="col-sm-6 col-md-4 item"><i class="typcn typcn-th-list icon"></i>
-                    <h3 class="name">Courses</h3>
+                    <h3 style="font-size:23px;"><a class="myclass" href="{{ url_for('institution_list') }}">Courses</a></h3>
                     <p class="description">List of Courses</p>
                 </div>
                 <div class="col-sm-6 col-md-4 item"><i class="fa fa-inbox icon"></i>
-                    <h3 class="name">Quotes</h3>
+                    <h3 style="font-size:23px;"><a class="myclass" href="{{ url_for('institution_list') }}">Quotes</a></h3>
                     <p class="description">Quotes Register</p>
                 </div>
                 <div class="col-sm-6 col-md-4 item"><i class="fa fa-eye icon"></i>
-                    <h3 class="name">Activities</h3>
+                    <h3 style="font-size:23px;"><a class="myclass" href="{{ url_for('institution_list') }}">Activities</a></h3>
                     <p class="description">Customer Activities</p>
                 </div>
             </div>
@@ -80,8 +80,9 @@
         </footer>
     </div>
 
-    <script src="static/js/jquery.min.js"></script>
-    <script src="static/bootstrap/js/bootstrap.min.js"></script>
+    <script src="{{ url_for('static', filename='js/jquery.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='bootstrap/js/bootstrap.min.js') }}"></script>
+
     
 </body>
 

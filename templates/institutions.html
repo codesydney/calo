@@ -22,19 +22,16 @@
     <div>
         <div class="header-blue" style="height:5px;">
             <nav class="navbar navbar-dark navbar-expand-md navigation-clean-search">
-                <div class="container"><a class="navbar-brand" href="#" style="font-size:59px;font-family:'Source Sans Pro', sans-serif;">CALO</a><button class="navbar-toggler" data-toggle="collapse" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
-                    <div
-                        class="collapse navbar-collapse" id="navcol-1">
-                        <ul class="nav navbar-nav"></ul>
-                        <form class="form-inline mr-auto" target="_self">
-                            <div class="form-group"><label for="search-field"></label><input class="form-control search-field" type="search" name="search" id="search-field"></div>
-                        </form><span class="navbar-text"> <a href="#" class="login">Log In</a></span><a class="btn btn-light action-button" role="button" href="#">Sign Up</a></div>
-        </div>
-        </nav>
+                <div class="container">
+                  <a class="navbar-brand" href="#" style="font-size:59px;font-family:'Source Sans Pro',sans-serif"></a>
+                  <span class="navbar-brand"> <a class="navbar-brand" href="#" style="font-size:59px;font-family:'Source Sans Pro',sans-serif;"></a></span>
+                </div>
+           </nav>
+       </div>
     </div>
-    </div>
-        
+
       <h1 style="font-size:45px;margin-left:172px;">Institutions</h1>
+      
       {% with messages = get_flashed_messages() %}
         {% if messages %}
           {% for message in messages %}
@@ -42,7 +39,9 @@
           {% endfor %}
         {% endif %}
       {% endwith %}
+      
       <p style="margin-left:172px;"><button type=button onclick="window.location.href='{{ url_for('inst_add') }}';">Create new record</button></p>
+      
       <form  style="margin-left:172px;" method="POST" action="{{ url_for('institution_list') }}">
         <select name='sort'>
           <option value="0" {% if srt=='0' %}SELECTED{% endif %}>Code</option>
@@ -51,6 +50,8 @@
         </select>
         <input type=submit value="Sort" name="btn_submit">
       </form>
+
+ 
       <table style="font-size:18px;margin-left:172px;">
         <tr>
           <td><strong>Code</strong></td>
@@ -99,9 +100,9 @@
         </footer>
     </div>
 
-    <script src="static/js/jquery.min.js"></script>
-    <script src="static/bootstrap/js/bootstrap.min.js"></script>
-    
+    <script src="{{ url_for('static', filename='js/jquery.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='bootstrap/js/bootstrap.min.js') }}"></script>
+ 
 </body>
 
 </html>
